@@ -338,6 +338,11 @@ prettier@^2.7.1:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.7.1.tgz#e235806850d057f97bb08368a4f7d899f7760c64"
   integrity sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==
 
+protoframe@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/protoframe/-/protoframe-1.1.0.tgz#baf4a390fd064895be5272f0fa21b2ed1aa22801"
+  integrity sha512-jtN+eDWdYUB/w38qWeXpJO3NCTSHwqfo9xE5cq1oeUU8JKKLUHLQbK6IwF+/I9m+NtKJPMMOKB20zNfzO7tljA==
+
 restore-cursor@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/restore-cursor/-/restore-cursor-3.1.0.tgz#39f67c54b3a7a58cea5236d95cf0034239631f7e"
