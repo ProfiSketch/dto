@@ -2,6 +2,7 @@
   "conventionalCommits.scopes": [
     "Config",
     "Docs",
-    "DTO"
-  ]
+    "DTO",
+    "Version"
+]
 }
