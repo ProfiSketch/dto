@@ -1,0 +1,20 @@
+{
+  "name": "ps_dto",
+  "version": "0.1.0",
+  "description": "ProfiSketch DTO",
+  "main": "index.ts",
+  "author": "Yakovlev Kll <yakovlev.kll@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "prettier": "^2.7.1"
+  },
+  "lint-staged": {
+    "*.{js,ts,md}": "prettier --write"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  }
+}
