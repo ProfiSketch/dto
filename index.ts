@@ -1,6 +1,14 @@
-import Editor2DProtocol from './frontend/2d-editor'
+/* TYPES */
 
-import { ResponseStatus } from './frontend/typings'
-import { UUID } from './typings'
+import type { ResponseStatus } from './frontend/typings'
+import type { UUID } from './typings'
 
-export { Editor2DProtocol, UUID, ResponseStatus }
+import type { Editor2dProtocol } from './frontend/typings'
+
+export type { Editor2dProtocol, UUID, ResponseStatus }
+
+/* ELSE */
+
+import { Editor2dDescriptor } from './frontend/2d-editor'
+
+export { Editor2dDescriptor }
