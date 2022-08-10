@@ -1,9 +1,9 @@
 /* TYPES */
 
-import type { ResponseStatus } from './frontend/typings'
-import type { UUID } from './typings'
+import { ResponseStatus } from './frontend/typings'
+import { UUID } from './typings'
 
-import type { Editor2dProtocol } from './frontend/typings'
+import { Editor2dProtocol } from './frontend/typings'
 
 export type { Editor2dProtocol, UUID, ResponseStatus }
 
