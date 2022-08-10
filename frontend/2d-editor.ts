@@ -3,7 +3,7 @@ import { ProtoframeDescriptor } from 'protoframe'
 type ResponseStatus = 'success' | 'warning' | 'error'
 type UUID = string
 
-const editor2DProtocol: ProtoframeDescriptor<{
+const Editor2DProtocol: ProtoframeDescriptor<{
   setCellsSelected: {
     body: { ids: UUID[] }
     response: { status: ResponseStatus; description: string }
@@ -13,4 +13,4 @@ const editor2DProtocol: ProtoframeDescriptor<{
   }
 }> = { type: 'editor2D' }
 
-export default editor2DProtocol
+export default Editor2DProtocol
