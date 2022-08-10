@@ -18,6 +18,7 @@
     "*.{js,ts,md}": "prettier --write"
   },
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build": "tsc"
   }
 }
