@@ -19,7 +19,7 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "build": "tsc",
+    "build": "npx tsc",
     "postinstall": "yarn build"
   }
 }
