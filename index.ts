@@ -1,3 +1,3 @@
-import editor2DProtocol from './frontend/2d-editor'
+import Editor2DProtocol from './frontend/2d-editor'
 
-export { editor2DProtocol }
+export { Editor2DProtocol }
