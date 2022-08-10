@@ -1,6 +1,7 @@
 import { ProtoframeDescriptor } from 'protoframe'
 
 type ResponseStatus = 'success' | 'warning' | 'error'
+type UUID = string
 
 const editor2DProtocol: ProtoframeDescriptor<{
   setCellsSelected: {
