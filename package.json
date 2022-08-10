@@ -2,7 +2,7 @@
   "name": "ps_dto",
   "version": "0.1.2",
   "description": "ProfiSketch DTO",
-  "main": "index.ts",
+  "types": "index.ts",
   "author": "Yakovlev Kll <yakovlev.kll@gmail.com>",
   "license": "MIT",
   "private": true,
