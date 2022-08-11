@@ -24,7 +24,7 @@ export interface Editor2dProtocol extends Protoframe {
 
   /* Events */
   elemIsAdded: {
-    body: { ports: SchemeElemPort[] }
+    body: { id: UUID; ports: SchemeElemPort[] }
   }
   elemsAreSelected: {
     body: { ids: UUID[] }
