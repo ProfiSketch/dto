@@ -1,14 +1,16 @@
 import { Protoframe } from 'protoframe'
 import { UUID } from '../typings'
+import { MimeType3d } from './mime'
 
 export type ResponseStatus = 'success' | 'warning' | 'error'
 
 type RequestResponse = { status: ResponseStatus; description?: string }
 
+// TODO: extract SchemeElemPort to 0.1 specs
 export type SchemeElemPort = string | number
 
 export interface Editor2dProtocol extends Protoframe {
-  /* Requests */
+  /* Tasks */
   selectElems: {
     body: { ids: UUID[] }
     response: RequestResponse
@@ -35,5 +37,7 @@ export interface Editor2dProtocol extends Protoframe {
   elemsAreDeleted: {
     body: { ids: UUID[] }
   }
-  //   What about Ctrl + Z ?
+  elemsAreRestored: {
+    body: { ids: UUID[] }
+  }
 }
