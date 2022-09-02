@@ -2,6 +2,9 @@ import { Protoframe } from 'protoframe'
 import { UUID } from '../typings'
 import { MimeType3d } from './mime'
 
+import { Point3d } from '../core/point'
+import { Port } from '../core/port'
+
 export type ResponseStatus = 'success' | 'warning' | 'error'
 
 type RequestResponse = { status: ResponseStatus; description?: string }
@@ -52,11 +55,18 @@ export interface Editor3dProtocol extends Protoframe {
     response: RequestResponse
   }
   loadObjects: {
-    body: { file: File3d; id: UUID }
+    body: {
+      objects: {
+        file: File3d
+        id: UUID
+        position?: Point3d
+        ports?: Port[]
+      }[]
+    }
     response: RequestResponse
   }
   selectObjects: {
-    body: { ids: UUID[] }
+    body: { objects: { id: UUID; connections?: UUID[] }[] }
     response: RequestResponse
   }
   deleteObjects: {
