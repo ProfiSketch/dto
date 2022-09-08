@@ -37,6 +37,9 @@ export interface Editor2dProtocol extends Protoframe {
   elemsAreConnected: {
     body: { elems: { id: UUID; port: SchemeElemPort }[] }
   }
+  elemsAreDisconnected: {
+    body: { elems: { id: UUID; port: SchemeElemPort }[] }
+  }
   elemsAreDeleted: {
     body: { ids: UUID[] }
   }
