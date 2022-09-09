@@ -2,7 +2,7 @@ import { Protoframe } from 'protoframe'
 import { UUID } from '../typings'
 import { MimeType3d } from './mime'
 
-import { Point3d } from '../core/point'
+import { Point2d, Point3d } from '../core/point'
 import { Port } from '../core/port'
 
 export type ResponseStatus = 'success' | 'warning' | 'error'
@@ -26,6 +26,10 @@ export interface Editor2dProtocol extends Protoframe {
     body: { from: string; to: UUID }
     response: RequestResponse
   }
+  moveElems: {
+    body: { elems: { id: UUID; position: Point2d } }
+    response: RequestResponse
+  }
 
   /* Events */
   elemIsAdded: {
@@ -33,6 +37,9 @@ export interface Editor2dProtocol extends Protoframe {
   }
   elemsAreSelected: {
     body: { ids: UUID[] }
+  }
+  elemsAreMoved: {
+    body: { elems: { id: UUID; position: Point2d } }
   }
   elemsAreConnected: {
     body: { elems: { id: UUID; port: SchemeElemPort }[] }
@@ -72,6 +79,10 @@ export interface Editor3dProtocol extends Protoframe {
     body: { objects: { id: UUID; connections?: UUID[] }[] }
     response: RequestResponse
   }
+  moveObjects: {
+    body: { objects: { id: UUID; connections?: UUID[]; position: Point3d }[] }
+    response: RequestResponse
+  }
   deleteObjects: {
     body: { ids: UUID[] }
     response: RequestResponse
@@ -88,6 +99,9 @@ export interface Editor3dProtocol extends Protoframe {
   }
   objectsAreSelected: {
     body: { ids: UUID[] }
+  }
+  objectsAreMoved: {
+    body: { objects: { id: UUID; position: Point3d } }
   }
   //   TODO: implement later
   //   objectsAreConnected: {
