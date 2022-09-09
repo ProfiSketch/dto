@@ -27,7 +27,7 @@ export interface Editor2dProtocol extends Protoframe {
     response: RequestResponse
   }
   moveElems: {
-    body: { elems: { id: UUID; position: Point2d } }
+    body: { elems: { id: UUID; position: Point2d }[] }
     response: RequestResponse
   }
 
@@ -39,7 +39,7 @@ export interface Editor2dProtocol extends Protoframe {
     body: { ids: UUID[] }
   }
   elemsAreMoved: {
-    body: { elems: { id: UUID; position: Point2d } }
+    body: { elems: { id: UUID; position: Point2d }[] }
   }
   elemsAreConnected: {
     body: { elems: { id: UUID; port: SchemeElemPort }[] }
@@ -101,7 +101,7 @@ export interface Editor3dProtocol extends Protoframe {
     body: { ids: UUID[] }
   }
   objectsAreMoved: {
-    body: { objects: { id: UUID; position: Point3d } }
+    body: { objects: { id: UUID; position: Point3d }[] }
   }
   //   TODO: implement later
   //   objectsAreConnected: {
