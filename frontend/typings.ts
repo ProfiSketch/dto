@@ -95,7 +95,7 @@ export interface Editor3dProtocol extends Protoframe {
   /* Events */
 
   objectIsAdded: {
-    body: { id: UUID }
+    body: { id: UUID; position: Point3d }
   }
   objectsAreSelected: {
     body: { ids: UUID[] }
