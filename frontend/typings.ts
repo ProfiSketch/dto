@@ -64,6 +64,12 @@ export interface Editor3dProtocol extends Protoframe {
     body: { file: File3d }
     response: RequestResponse
   }
+  getScene: {
+    body: {}
+    response: { file: Omit<File3d, 'filename'>; status: RequestResponse }
+  }
+
+  //   Objects
   loadObjects: {
     body: {
       objects: {
@@ -75,6 +81,7 @@ export interface Editor3dProtocol extends Protoframe {
     }
     response: RequestResponse
   }
+
   selectObjects: {
     body: { objects: { id: UUID; connections?: UUID[] }[] }
     response: RequestResponse
