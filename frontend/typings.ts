@@ -66,7 +66,7 @@ export interface Editor3dProtocol extends Protoframe {
   }
   getScene: {
     body: {}
-    response: { file: Omit<File3d, 'filename'>; status: RequestResponse }
+    response: RequestResponse & { blob: Blob }
   }
 
   //   Objects
