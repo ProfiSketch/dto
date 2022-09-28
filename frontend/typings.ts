@@ -15,6 +15,11 @@ export type SchemeElemPort = string | number
 export interface Editor2dProtocol extends Protoframe {
   /* Tasks */
 
+  init: {
+    body: undefined
+    response: RequestResponse & { ver: string }
+  }
+
   getScheme: {
     body: {}
     response: RequestResponse & { blob: Blob }
@@ -77,6 +82,11 @@ export type File3d = { blob: Blob; mime: MimeType3d; filename: string }
 
 export interface Editor3dProtocol extends Protoframe {
   /* Tasks */
+
+  init: {
+    body: undefined
+    response: RequestResponse & { ver: string }
+  }
 
   loadScene: {
     body: { file: File3d }
