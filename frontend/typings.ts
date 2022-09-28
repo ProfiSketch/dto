@@ -14,42 +14,60 @@ export type SchemeElemPort = string | number
 
 export interface Editor2dProtocol extends Protoframe {
   /* Tasks */
+
+  getScheme: {
+    body: {}
+    response: RequestResponse & { blob: Blob }
+  }
+
+  // 2d scheme elements
+
   selectElems: {
     body: { ids: UUID[] }
     response: RequestResponse
   }
+
   deleteElems: {
     body: { ids: UUID[] }
     response: RequestResponse
   }
+
   updateElemUuid: {
     body: { from: string; to: UUID }
     response: RequestResponse
   }
+
   moveElems: {
     body: { elems: { id: UUID; position: Point2d }[] }
     response: RequestResponse
   }
 
   /* Events */
+
   elemsAreAdded: {
     body: { elems: { id: UUID; ports: SchemeElemPort[]; position: Point2d }[] }
   }
+
   elemsAreSelected: {
     body: { ids: UUID[] }
   }
+
   elemsAreMoved: {
     body: { elems: { id: UUID; position: Point2d }[] }
   }
+
   elemsAreConnected: {
     body: { elems: { id: UUID; port: SchemeElemPort }[] }
   }
+
   elemsAreDisconnected: {
     body: { elems: { id: UUID; port: SchemeElemPort }[] }
   }
+
   elemsAreDeleted: {
     body: { ids: UUID[] }
   }
+
   elemsAreRestored: {
     body: { ids: UUID[] }
   }
@@ -64,12 +82,14 @@ export interface Editor3dProtocol extends Protoframe {
     body: { file: File3d }
     response: RequestResponse
   }
+
   getScene: {
     body: {}
     response: RequestResponse & { blob: Blob }
   }
 
-  //   Objects
+  // 3d model objects
+
   loadObjects: {
     body: {
       objects: {
@@ -86,14 +106,17 @@ export interface Editor3dProtocol extends Protoframe {
     body: { objects: { id: UUID; connections?: UUID[] }[] }
     response: RequestResponse
   }
+
   moveObjects: {
     body: { objects: { id: UUID; connections?: UUID[]; position: Point3d }[] }
     response: RequestResponse
   }
+
   deleteObjects: {
     body: { ids: UUID[] }
     response: RequestResponse
   }
+
   updateObjectUuid: {
     body: { from: string; to: UUID }
     response: RequestResponse
@@ -104,19 +127,24 @@ export interface Editor3dProtocol extends Protoframe {
   objectIsAdded: {
     body: { id: UUID; position: Point3d }
   }
+
   objectsAreSelected: {
     body: { ids: UUID[] }
   }
+
   objectsAreMoved: {
     body: { objects: { id: UUID; position: Point3d }[] }
   }
+
   //   TODO: implement later
   //   objectsAreConnected: {
   //     body: { elems: { id: UUID; port: SchemeElemPort }[] }
   //   }
+
   objectsAreDeleted: {
     body: { ids: UUID[] }
   }
+
   objectsAreRestored: {
     body: { ids: UUID[] }
   }
