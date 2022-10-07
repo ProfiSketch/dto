@@ -1,8 +1,9 @@
 {
   "conventionalCommits.scopes": [
-    "Config",
-    "Docs",
-    "DTO",
-    "Version"
+        "DTO",
+        "Shared types",
+        "Version",
+        "Build & CI/CD",
+        "Docs"
 ]
 }
