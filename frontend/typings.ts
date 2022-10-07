@@ -1,39 +1,35 @@
 import { Protoframe } from 'protoframe'
-import { UUID } from '../typings'
-import { MimeType3d } from './mime'
 
-import { Point2d, Point3d } from '../core/point'
-import { Port } from '../core/port'
+import { AbsolutePoint2d, AbsolutePoint3d } from '../shared/point'
+import { File2dContent, File3d } from '../shared/file'
+import { RequestResponse } from '../shared/request'
+import { UUID } from '../shared/id'
 
-export type ResponseStatus = 'success' | 'warning' | 'error'
-
-type RequestResponse = { status: ResponseStatus; description?: string }
-
-// TODO: extract SchemeElemPort to 0.1 specs
-export type SchemeElemPort = string | number
+import { Connection_0_1, ConnectionContact_0_1 } from '../0.1/connection'
+import { Port_0_1 } from '../0.1/port'
 
 export interface Editor2dProtocol extends Protoframe {
   /* Tasks */
 
   busCheck: {
     body: {}
-    response: RequestResponse & { ver: string }
+    response: RequestResponse<{ ver: string }>
   }
 
   getScheme: {
     body: {}
-    response: RequestResponse & { blob: Blob }
+    response: RequestResponse<{ blob: File2dContent }>
   }
 
   // 2d scheme elements
 
   selectElems: {
-    body: { ids: UUID[] }
+    body: { ids: Array<UUID> }
     response: RequestResponse
   }
 
   deleteElems: {
-    body: { ids: UUID[] }
+    body: { ids: Array<UUID> }
     response: RequestResponse
   }
 
@@ -43,49 +39,53 @@ export interface Editor2dProtocol extends Protoframe {
   }
 
   moveElems: {
-    body: { elems: { id: UUID; position: Point2d }[] }
+    body: { elems: Array<{ id: UUID; position: AbsolutePoint2d }> }
     response: RequestResponse
   }
 
   /* Events */
 
   elemsAreAdded: {
-    body: { elems: { id: UUID; ports: SchemeElemPort[]; position: Point2d }[] }
+    body: {
+      elems: Array<{
+        id: UUID
+        ports?: Array<Port_0_1>
+        position: AbsolutePoint2d
+      }>
+    }
   }
 
   elemsAreSelected: {
-    body: { ids: UUID[] }
+    body: { ids: Array<UUID> }
   }
 
   elemsAreMoved: {
-    body: { elems: { id: UUID; position: Point2d }[] }
+    body: { elems: Array<{ id: UUID; position: AbsolutePoint2d }> }
   }
 
   elemsAreConnected: {
-    body: { elems: { id: UUID; port: SchemeElemPort }[] }
+    body: { elems: Array<ConnectionContact_0_1> }
   }
 
   elemsAreDisconnected: {
-    body: { elems: { id: UUID; port: SchemeElemPort }[] }
+    body: { elems: Array<ConnectionContact_0_1> }
   }
 
   elemsAreDeleted: {
-    body: { ids: UUID[] }
+    body: { ids: Array<UUID> }
   }
 
   elemsAreRestored: {
-    body: { ids: UUID[] }
+    body: { ids: Array<UUID> }
   }
 }
-
-export type File3d = { blob: Blob; mime: MimeType3d; filename: string }
 
 export interface Editor3dProtocol extends Protoframe {
   /* Tasks */
 
   busCheck: {
     body: {}
-    response: RequestResponse & { ver: string }
+    response: RequestResponse<{ ver: string }>
   }
 
   loadScene: {
@@ -95,7 +95,7 @@ export interface Editor3dProtocol extends Protoframe {
 
   getScene: {
     body: {}
-    response: RequestResponse & { blob: Blob }
+    response: RequestResponse<{ blob: Blob }>
   }
 
   // 3d model objects
@@ -105,25 +105,35 @@ export interface Editor3dProtocol extends Protoframe {
       objects: {
         file: File3d
         id: UUID
-        position?: Point3d
-        ports?: Port[]
+        position?: AbsolutePoint3d
       }[]
     }
     response: RequestResponse
   }
 
   selectObjects: {
-    body: { objects: { id: UUID; connections?: UUID[] }[] }
+    body: {
+      objects: Array<{
+        id: UUID
+        connections?: Array<Connection_0_1>
+      }>
+    }
     response: RequestResponse
   }
 
   moveObjects: {
-    body: { objects: { id: UUID; connections?: UUID[]; position: Point3d }[] }
+    body: {
+      objects: Array<{
+        id: UUID
+        connections?: Array<UUID>
+        position: AbsolutePoint3d
+      }>
+    }
     response: RequestResponse
   }
 
   deleteObjects: {
-    body: { ids: UUID[] }
+    body: { ids: Array<UUID> }
     response: RequestResponse
   }
 
@@ -135,27 +145,27 @@ export interface Editor3dProtocol extends Protoframe {
   /* Events */
 
   objectIsAdded: {
-    body: { id: UUID; position: Point3d }
+    body: { id: UUID; position: AbsolutePoint3d }
   }
 
   objectsAreSelected: {
-    body: { ids: UUID[] }
+    body: { ids: Array<UUID> }
   }
 
   objectsAreMoved: {
-    body: { objects: { id: UUID; position: Point3d }[] }
+    body: { objects: Array<{ id: UUID; position: AbsolutePoint3d }> }
   }
 
   //   TODO: implement later
   //   objectsAreConnected: {
-  //     body: { elems: { id: UUID; port: SchemeElemPort }[] }
+  //     body: { elems: Array<{ id: UUID; port: SchemeElemPort }> }
   //   }
 
   objectsAreDeleted: {
-    body: { ids: UUID[] }
+    body: { ids: Array<UUID> }
   }
 
   objectsAreRestored: {
-    body: { ids: UUID[] }
+    body: { ids: Array<UUID> }
   }
 }
