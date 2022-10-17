@@ -82,9 +82,15 @@ export interface Editor2dProtocol extends Protoframe {
 }
 
 export interface Container3dConnection {
-  uuid: UUID
-  port?: PortAddress
-  contact?: RelativePoint3d
+  from: {
+    port?: PortAddress
+    contact?: RelativePoint3d
+  }
+  to: {
+    uuid: UUID
+    port?: PortAddress
+    contact?: RelativePoint3d
+  }
 }
 
 export interface Editor3dProtocol extends Protoframe {
