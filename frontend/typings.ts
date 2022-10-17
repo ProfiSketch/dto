@@ -7,6 +7,7 @@ import { UUID } from '../shared/id'
 
 import { Connection_0_1, ConnectionContact_0_1 } from '../0.1/connection'
 import { Port_0_1 } from '../0.1/port'
+import { PortAddress, RelativePoint3d } from '..'
 
 export interface Editor2dProtocol extends Protoframe {
   /* Tasks */
@@ -80,6 +81,12 @@ export interface Editor2dProtocol extends Protoframe {
   }
 }
 
+export interface Container3dConnection {
+  uuid: UUID
+  port?: PortAddress
+  contact?: RelativePoint3d
+}
+
 export interface Editor3dProtocol extends Protoframe {
   /* Tasks */
 
@@ -115,7 +122,7 @@ export interface Editor3dProtocol extends Protoframe {
     body: {
       objects: Array<{
         id: UUID
-        connections?: Array<Connection_0_1>
+        connections?: Array<Container3dConnection>
       }>
     }
     response: RequestResponse
@@ -125,7 +132,7 @@ export interface Editor3dProtocol extends Protoframe {
     body: {
       objects: Array<{
         id: UUID
-        connections?: Array<UUID>
+        connections?: Array<Container3dConnection>
         position: AbsolutePoint3d
       }>
     }
