@@ -5,9 +5,9 @@ import { File2dContent, File3d } from '../shared/file'
 import { RequestResponse } from '../shared/request'
 import { UUID } from '../shared/id'
 
-import { Connection_0_1, ConnectionContact_0_1 } from '../0.1/connection'
+import { ConnectionContact_0_1 } from '../0.1/connection'
 import { Port_0_1 } from '../0.1/port'
-import { PortAddress, RelativePoint3d } from '..'
+import { PortAddress, RelativePoint3d, ConnectionEdgeType } from '..'
 
 export interface Editor2dProtocol extends Protoframe {
   /* Tasks */
@@ -91,6 +91,7 @@ export interface Container3dConnection {
     port?: PortAddress
     contact?: RelativePoint3d
   }
+  type?: ConnectionEdgeType
 }
 
 export interface Editor3dProtocol extends Protoframe {
