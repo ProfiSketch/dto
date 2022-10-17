@@ -62,10 +62,15 @@ export type { File2d, File3d, File2dContent, File3dContent }
 
 /* 0.1 */
 
-import { Connection_0_1, ConnectionContact_0_1 } from './0.1/connection'
+import {
+  Connection_0_1,
+  ConnectionContact_0_1,
+  ConnectionEdgeType_0_1,
+} from './0.1/connection'
 export type {
   Connection_0_1 as Connection,
   ConnectionContact_0_1 as ConnectionContact,
+  ConnectionEdgeType_0_1 as ConnectionEdgeType,
 }
 
 import { Model3dUserData_0_1 } from './0.1/model3d'
