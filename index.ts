@@ -56,9 +56,23 @@ export {
 
 /* Files */
 
-import { File2d, File3d, File2dContent, File3dContent } from './shared/file'
+import {
+  File2d,
+  File3d,
+  File2dContent,
+  File3dContent,
+  File2dType,
+  File3dType,
+} from './shared/file'
 
-export type { File2d, File3d, File2dContent, File3dContent }
+export type {
+  File2d,
+  File3d,
+  File2dContent,
+  File3dContent,
+  File2dType,
+  File3dType,
+}
 
 /* 0.1 */
 
