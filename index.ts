@@ -90,8 +90,12 @@ export type {
 import { Model3dUserData_0_1 } from './0.1/model3d'
 export type { Model3dUserData_0_1 as Model3dUserData }
 
-import { Port_0_1, PortAddress_0_1 } from './0.1/port'
-export type { Port_0_1 as Port, PortAddress_0_1 as PortAddress }
+import { Port_0_1, Port3d_0_1, PortAddress_0_1 } from './0.1/port'
+export type {
+  Port_0_1 as Port,
+  Port3d_0_1 as Port3d,
+  PortAddress_0_1 as PortAddress,
+}
 
 /* Protoframe protocols and descriptors */
 

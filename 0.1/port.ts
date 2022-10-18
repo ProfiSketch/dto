@@ -1,4 +1,4 @@
-import { RelativeMultiPoint } from '../shared/point'
+import { RelativeMultiPoint, RelativePoint3d } from '../shared/point'
 
 /*
 
@@ -12,6 +12,10 @@ Port -- фиксированное место БИМ контейнера, к к
 */
 
 export interface Port_0_1 extends RelativeMultiPoint {
+  address: PortAddress_0_1
+}
+
+export interface Port3d_0_1 extends RelativePoint3d {
   address: PortAddress_0_1
 }
 
