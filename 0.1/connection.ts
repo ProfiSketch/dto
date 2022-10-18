@@ -71,11 +71,12 @@ export type ConnectionEdgeType_0_1 = 'straight' | 'spline' | 'segmented'
 
 interface ContainerConnection<T> {
   from: {
+    id: UUID
     port?: PortAddress
     contact?: T
   }
   to: {
-    uuid: UUID
+    id: UUID
     port?: PortAddress
     contact?: T
   }
