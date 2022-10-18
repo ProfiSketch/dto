@@ -5,9 +5,7 @@ import { File2dContent, File3d } from '../shared/file'
 import { RequestResponse } from '../shared/request'
 import { UUID } from '../shared/id'
 
-import { ConnectionContact_0_1 } from '../0.1/connection'
-import { Port_0_1 } from '../0.1/port'
-import { PortAddress, RelativePoint3d, ConnectionEdgeType } from '..'
+import { ContainerConnection2d, ContainerConnection3d, Port2d } from '..'
 
 export interface Editor2dProtocol extends Protoframe {
   /* Tasks */
@@ -50,7 +48,7 @@ export interface Editor2dProtocol extends Protoframe {
     body: {
       elems: Array<{
         id: UUID
-        ports?: Array<Port_0_1>
+        ports?: Array<Port2d>
         position: AbsolutePoint2d
       }>
     }
@@ -65,11 +63,11 @@ export interface Editor2dProtocol extends Protoframe {
   }
 
   elemsAreConnected: {
-    body: { elems: Array<ConnectionContact_0_1> }
+    body: { elems: Array<ContainerConnection2d> }
   }
 
   elemsAreDisconnected: {
-    body: { elems: Array<ConnectionContact_0_1> }
+    body: { elems: Array<ContainerConnection2d> }
   }
 
   elemsAreDeleted: {
@@ -79,19 +77,6 @@ export interface Editor2dProtocol extends Protoframe {
   elemsAreRestored: {
     body: { ids: Array<UUID> }
   }
-}
-
-export interface Container3dConnection {
-  from: {
-    port?: PortAddress
-    contact?: RelativePoint3d
-  }
-  to: {
-    uuid: UUID
-    port?: PortAddress
-    contact?: RelativePoint3d
-  }
-  type?: ConnectionEdgeType
 }
 
 export interface Editor3dProtocol extends Protoframe {
@@ -129,7 +114,7 @@ export interface Editor3dProtocol extends Protoframe {
     body: {
       objects: Array<{
         id: UUID
-        connections?: Array<Container3dConnection>
+        connections?: Array<ContainerConnection3d>
       }>
     }
     response: RequestResponse
@@ -139,7 +124,7 @@ export interface Editor3dProtocol extends Protoframe {
     body: {
       objects: Array<{
         id: UUID
-        connections?: Array<Container3dConnection>
+        connections?: Array<ContainerConnection3d>
         position: AbsolutePoint3d
       }>
     }
