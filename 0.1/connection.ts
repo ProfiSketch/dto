@@ -1,10 +1,11 @@
-import { PortAddress } from '..'
-import { UUID } from '../shared/id'
 import {
+  PortAddress,
+  UUID,
   RelativeMultiPoint,
   RelativePoint2d,
   RelativePoint3d,
-} from '../shared/point'
+} from '..'
+
 import { Port_0_1 } from './port'
 import { Versionised_0_1 } from './_version'
 

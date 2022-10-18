@@ -1,6 +1,6 @@
 /* Shared */
 
-import { UUID } from './shared/id'
+import { URL, UUID } from './shared/common'
 import { DecimalPercent } from './shared/numbers'
 import {
   AbsolutePoint2d,
@@ -13,6 +13,7 @@ import {
 import { ResponseStatus, RequestResponse } from './shared/request'
 
 export type {
+  URL,
   UUID,
   DecimalPercent,
   ResponseStatus,

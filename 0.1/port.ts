@@ -1,8 +1,4 @@
-import {
-  RelativeMultiPoint,
-  RelativePoint2d,
-  RelativePoint3d,
-} from '../shared/point'
+import { RelativeMultiPoint, RelativePoint2d, RelativePoint3d } from '..'
 
 /*
 

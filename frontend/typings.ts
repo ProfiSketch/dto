@@ -3,9 +3,8 @@ import { Protoframe } from 'protoframe'
 import { AbsolutePoint2d, AbsolutePoint3d } from '../shared/point'
 import { File2dContent, File3d } from '../shared/file'
 import { RequestResponse } from '../shared/request'
-import { UUID } from '../shared/id'
 
-import { ContainerConnection2d, ContainerConnection3d, Port2d } from '..'
+import { ContainerConnection2d, ContainerConnection3d, Port2d, UUID } from '..'
 
 export interface Editor2dProtocol extends Protoframe {
   /* Tasks */
