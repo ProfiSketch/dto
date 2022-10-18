@@ -1,5 +1,10 @@
+import { PortAddress } from '..'
 import { UUID } from '../shared/id'
-import { RelativeMultiPoint } from '../shared/point'
+import {
+  RelativeMultiPoint,
+  RelativePoint2d,
+  RelativePoint3d,
+} from '../shared/point'
 import { Port_0_1 } from './port'
 import { Versionised_0_1 } from './_version'
 
@@ -60,3 +65,22 @@ interface ConnectionEdge_0_1 extends Versionised_0_1 {
 }
 
 export type ConnectionEdgeType_0_1 = 'straight' | 'spline' | 'segmented'
+
+//
+
+interface ContainerConnection<T> {
+  from: {
+    port?: PortAddress
+    contact?: T
+  }
+  to: {
+    uuid: UUID
+    port?: PortAddress
+    contact?: T
+  }
+  type?: ConnectionEdgeType_0_1
+}
+
+export type ContainerConnection2d_0_1 = ContainerConnection<RelativePoint2d>
+
+export type ContainerConnection3d_0_1 = ContainerConnection<RelativePoint3d>
