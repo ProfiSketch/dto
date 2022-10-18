@@ -1,6 +1,6 @@
 {
   "name": "ps_dto",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "description": "ProfiSketch DTO",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
