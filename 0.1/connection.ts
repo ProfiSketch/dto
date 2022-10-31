@@ -69,18 +69,17 @@ export type ConnectionEdgeType_0_1 = 'straight' | 'spline' | 'segmented'
 
 //
 
+export interface ContainerConnectionMember<T> {
+  id: UUID
+  port?: PortAddress
+  contact?: T
+}
+
 interface ContainerConnection<T> {
-  from: {
-    id: UUID
-    port?: PortAddress
-    contact?: T
-  }
-  to: {
-    id: UUID
-    port?: PortAddress
-    contact?: T
-  }
+  from: ContainerConnectionMember<T>
+  to: ContainerConnectionMember<T>
   type?: ConnectionEdgeType_0_1
+  connectionId: UUID
 }
 
 export type ContainerConnection2d_0_1 = ContainerConnection<RelativePoint2d>
