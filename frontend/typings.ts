@@ -54,7 +54,7 @@ export interface Editor2dProtocol extends Protoframe {
   }
 
   elemsAreSelected: {
-    body: { ids: Array<UUID> }
+    body: { elems: Array<{ id: UUID; isConn: boolean }> }
   }
 
   elemsAreMoved: {
