@@ -1,8 +1,23 @@
 import { UUID } from '../lib'
-import { VersionisedURL } from '../shared/common'
 
-export interface Product {
+import { URL, VersionisedURL } from '../shared/common'
+import { TimeInfo } from '../shared/time'
+
+export interface Product extends TimeInfo {
   pk: UUID
+
   fk_catalog: UUID
-  content_url: VersionisedURL
+  fk_structure: UUID
+  fk_vendor: UUID
+
+  name: string
+
+  data: {
+    content: VersionisedURL
+    specifications: Record<string, string>
+    prev_image: URL
+  }
+
+  // reviews: Array<Review>
+  // prices: Array<Price>
 }
