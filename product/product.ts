@@ -1,6 +1,4 @@
-import { UUID } from '../lib'
-
-import { URL, VersionisedURL } from '../shared/common'
+import { URL, VersionisedURL, UUID } from '../shared/common'
 import { TimeInfo } from '../shared/time'
 
 export interface Product extends TimeInfo {
