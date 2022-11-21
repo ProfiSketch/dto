@@ -16,6 +16,7 @@ export interface Product extends TimeInfo {
     content: VersionisedURL
     specifications: Record<string, string>
     prev_image: URL
+    price_avg: number
   }
 
   // reviews: Array<Review>
