@@ -1,22 +1,57 @@
-import { Price } from './price'
-import { Review } from './review'
-import { Figure2d, Model3d, File } from './file'
-import { Spec } from './spec'
-import { URL } from '../shared/common'
+import { VersionisedURL } from '../shared/common'
 
 export type Revision = string
 
-export interface ProductContentJSON {
+export interface ProductContent {
   rev: Revision
 
-  specifications: Array<Spec>
-  prices: Array<Price>
-  reviews: Array<Review>
+  ps_1d: {
+    // ГОСТ параметры
+    bom: VersionisedURL
 
-  thumbnail: URL
-  images: Array<URL>
+    // Остальная аттрибутивная информация
+    attributes: VersionisedURL
 
-  models: Array<Model3d>
-  figures: Array<Figure2d>
-  files: Array<File>
+    // Обложка (изображение)
+    thumbnail: VersionisedURL
+
+    images: Array<VersionisedURL>
+
+    // Документы - pdf, ...
+    docs: Array<VersionisedURL>
+
+    ifc: VersionisedURL
+  }
+
+  ps_2d: {
+    figures: {
+      // Схемы
+      schemes: Array<VersionisedURL>
+
+      // Разрезы
+      sections: Array<VersionisedURL>
+
+      // Планы
+      plans: Array<VersionisedURL>
+
+      // Аксонометрии
+      axonometries: Array<VersionisedURL>
+    }
+
+    // Чертежи
+    drafts: Array<VersionisedURL>
+  }
+
+  ps_3d: {
+    // Основная модель
+    gltf_model: VersionisedURL
+
+    // Дополнительные модели
+    other_models: Array<VersionisedURL>
+
+    // Вспомогательная геометрия
+    helpers: {
+      ports: VersionisedURL
+    }
+  }
 }
